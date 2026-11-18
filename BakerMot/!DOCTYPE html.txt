@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BakerMot - Agencia de Motos</title>
+
+    <!-- Bootstrap primero, tus estilos después -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+<!-- BARRA DE NAVEGACIÓN -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top barra">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#inicio">🏍️ BakerMot</a>
+        <a class="nombreYou" style="line-height: 1.2;" href="#inicio">Yoana Peña Aparicio</a>
+        <br>
+        <a class="nombreYou" href="#inicio">UNIVERSIDAD TECNOLÓGICA DE IZÚCAR DE MATAMOROS</a>
+        
+        
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                aria-controls="menuPrincipal" aria-expanded="false"
+                aria-label="Mostrar menú">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link active" href="#inicio">Inicio</a>
+                <a class="nav-link" href="#motos">Motos</a>
+                <a class="nav-link" href="#ayuda">Ayuda</a>
+                <a class="nav-link" href="#contacto">Contacto</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main>
+
+    <!-- INICIO CON CARRUSEL -->
+    <section id="inicio">
+        <div id="carruselPortada" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carruselPortada" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carruselPortada" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carruselPortada" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="4000">
+                    <img src="https://cdn.pixabay.com/photo/2021/10/10/06/59/motorbikes-6695770_640.jpg" class="d-block w-100 img-portada" alt="Motocicletas">
+                    <div class="carousel-caption portada-caption">
+                        <h1 class="fw-bold">Encuentra tu moto ideal</h1>
+                        <p class="lead">Deportivas, urbanas y de trabajo.</p>
+                        <a href="#motos" class="btn btn-danger btn-lg">Ver motos</a>
+                    </div>
+                </div>
+
+                <div class="carousel-item" data-bs-interval="4000">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.2gPxcAAl3-mqt3z-1Gwd5AHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" class="d-block w-100 img-portada" alt="Variedad de motos">
+                    <div class="carousel-caption portada-caption">
+                        <h1 class="fw-bold">Honda, Yamaha, Kawasaki y más</h1>
+                        <p class="lead">Las mejores marcas en un solo lugar.</p>
+                        <a href="#motos" class="btn btn-warning btn-lg">Ver catálogo</a>
+                    </div>
+                </div>
+
+                <div class="carousel-item" data-bs-interval="4000">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.q4gu5yV_umJxVQDfPehHRQHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" class="d-block w-100 img-portada" alt="Contacto">
+                    <div class="carousel-caption portada-caption">
+                        <h1 class="fw-bold">¿Dudas? Escríbenos</h1>
+                        <p class="lead">Te ayudamos a elegir.</p>
+                        <a href="#contacto" class="btn btn-success btn-lg">Contacto</a>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carruselPortada" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carruselPortada" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+    </section>
+
+
+    <!-- BUSCADORES --> 
+    <section class="buscador">
+        <p  style="text-align: center;"><i>Bienvenido a <b>BakerMot</b>, tu agencia de motos de confianza. En esta página puedes explorar nuestro catálogo de motocicletas deportivas, urbanas y de trabajo de marcas como Honda, Yamaha, Kawasaki, BMW, Suzuki e Italika. Consulta las características de cada modelo, como motor, velocidad y precio, y utiliza los buscadores para encontrar rápidamente la moto que mejor se adapte a ti, ya sea por nombre o por cilindrada. Si tienes dudas, nuestra sección de ayuda y contacto está disponible para orientarte en tu elección.</i></p>
+        <h2>Buscar una moto</h2>
+
+        <label for="buscarMoto">Nombre de la moto:</label>
+        <input type="text" id="buscarMoto" placeholder="Ejemplo: Honda" oninput="buscar()">
+
+        <label for="buscarMotor">Motor (cc):</label>
+        <input type="text" id="buscarMotor" placeholder="Ejemplo: 500"
+               oninput="soloNumeros(this); buscar()">
+
+        <p id="mensajeBusqueda" class="mensaje"></p>
+    </section>
+
+
+    <!-- MORTALIKAS -->
+    <section id="motos" class="motos">
+        <h2>Motocicletas disponibles</h2>
+
+        <div class="contenedor-motos" id="listaMotos">
+
+            <div class="moto">
+                <div class="imagen-moto">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.sxNG7bpqmhZ2bNjB1-lsDQHaGF?r=0&w=953&h=784&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Honda CBR">
+                </div>
+                <h3>Honda CBR</h3>
+                <p><strong>Marca:</strong> Honda</p>
+                <p><strong>Motor:</strong> 500 cc</p>
+                <p><strong>Velocidad:</strong> 180 km/h</p>
+                <p><strong>Precio:</strong> $120,000</p>
+                <button onclick="mostrarInfo('Honda CBR', this)">Ver información</button>
+                <p class="mensaje"></p>
+            </div>
+
+            <div class="moto">
+                <div class="imagen-moto">
+                    <img src="https://motorcyclespecs.b-cdn.net/wp-content/uploads/2020/01/yamaha-mt-07.jpg" alt="Yamaha MT-07">
+                </div>
+                <h3>Yamaha MT-07</h3>
+                <p><strong>Marca:</strong> Yamaha</p>
+                <p><strong>Motor:</strong> 689 cc</p>
+                <p><strong>Velocidad:</strong> 200 km/h</p>
+                <p><strong>Precio:</strong> $160,000</p>
+                <button onclick="mostrarInfo('Yamaha MT-07', this)">Ver información</button>
+                <p class="mensaje"></p>
+            </div>
+
+            <div class="moto">
+                <div class="imagen-moto">
+                    <img src="https://motormania.com.mx/wp-content/uploads/2024/08/200Z-02.jpg" alt="Italika 250Z">
+                </div>
+                <h3>Italika 250Z</h3>
+                <p><strong>Marca:</strong> Italika</p>
+                <p><strong>Motor:</strong> 250 cc</p>
+                <p><strong>Velocidad:</strong> 140 km/h</p>
+                <p><strong>Precio:</strong> $65,000</p>
+                <button onclick="mostrarInfo('Italika 250Z', this)">Ver información</button>
+                <p class="mensaje"></p>
+            </div>
+
+            <div class="moto">
+                <div class="imagen-moto">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.rpbgaTeH183dy8HWf2H5OgHaEK?r=0&w=1056&h=594&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Honda CBR650R">
+                </div>
+                <h3>Honda CBR650R</h3>
+                <p><strong>Marca:</strong> Honda</p>
+                <p><strong>Motor:</strong> 649 cc</p>
+                <p><strong>Velocidad:</strong> 200 km/h aprox.</p>
+                <p><strong>Precio:</strong> $230,000</p>
+                <button onclick="mostrarInfo('Honda CBR650R', this)">Ver información</button>
+                <p class="mensaje"></p>
+            </div>
+
+            <div class="moto">
+                <div class="imagen-moto">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.RHUMcGZBFruRMOETKhOvPQHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Yamaha R3">
+                </div>
+                <h3>Yamaha R3</h3>
+                <p><strong>Marca:</strong> Yamaha</p>
+                <p><strong>Motor:</strong> 321 cc</p>
+                <p><strong>Velocidad:</strong> 180 km/h aprox.</p>
+                <p><strong>Precio:</strong> $140,000</p>
+                <button onclick="mostrarInfo('Yamaha R3', this)">Ver información</button>
+                <p class="mensaje"></p>
+            </div>
+
+            <div class="moto">
+                <div class="imagen-moto">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.B2xHEpkjhEW-mH_TqHWOJQHaFj?r=0&w=1024&h=769&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Kawasaki Ninja 400">
+                </div>
+                <h3>Kawasaki Ninja 400</h3>
+                <p><strong>Marca:</strong> Kawasaki</p>
+                <p><strong>Motor:</strong> 399 cc</p>
+                <p><strong>Velocidad:</strong> 190 km/h aprox.</p>
+                <p><strong>Precio:</strong> $150,000</p>
+                <button onclick="mostrarInfo('Kawasaki Ninja 400', this)">Ver información</button>
+                <p class="mensaje"></p>
+            </div>
+
+            <div class="moto">
+                <div class="imagen-moto">
+                    <img src="https://images.ctfassets.net/8zlbnewncp6f/6NXW6FYYcbUoOUGymQMizI/f35b6f8b3c15547590e120a46fd01e2c/BMW_G_310_R_Galgo_M_xico.png" alt="BMW G 310 R">
+                </div>
+                <h3>BMW G 310 R</h3>
+                <p><strong>Marca:</strong> BMW</p>
+                <p><strong>Motor:</strong> 313 cc</p>
+                <p><strong>Velocidad:</strong> 143 km/h aprox.</p>
+                <p><strong>Precio:</strong> $110,000</p>
+                <button onclick="mostrarInfo('BMW G 310 R', this)">Ver información</button>
+                <p class="mensaje"></p>
+            </div>
+
+            <div class="moto">
+                <div class="imagen-moto">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.FwXZ83qOu_3BbZEvWcYGlwHaFO?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Suzuki GSX250R">
+                </div>
+                <h3>Suzuki GSX250R</h3>
+                <p><strong>Marca:</strong> Suzuki</p>
+                <p><strong>Motor:</strong> 248 cc</p>
+                <p><strong>Velocidad:</strong> 140 km/h aprox.</p>
+                <p><strong>Precio:</strong> $95,000</p>
+                <button onclick="mostrarInfo('Suzuki GSX250R', this)">Ver información</button>
+                <p class="mensaje"></p>
+            </div>
+
+        </div> <!-- cierra .contenedor-motos -->
+
+        <nav aria-label="Paginación" class="mt-4">
+            <ul class="pagination justify-content-center">
+                <li class="page-item"><a class="page-link" href="#motos" aria-label="Anterior">&laquo;</a></li>
+                <li class="page-item active"><a class="page-link" href="#motos">1</a></li>
+                <li class="page-item"><a class="page-link" href="#motos">2</a></li>
+                <li class="page-item"><a class="page-link" href="#motos">3</a></li>
+                <li class="page-item"><a class="page-link" href="#motos" aria-label="Siguiente">&raquo;</a></li>
+            </ul>
+        </nav>
+    </section>
+
+
+    <!-- AYUYAAAA -->
+    <section id="ayuda" class="ayuda">
+        <h2>¿Necesitas ayuda?</h2>
+        <p>
+            Si tienes alguna duda puedes utilizar nuestro módulo de contacto
+            para contarnos tus dudas y darte una solución.
+        </p>
+
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://images.pexels.com/photos/20607129/pexels-photo-20607129.jpeg?cs=srgb&dl=pexels-shuttertalesbygitau-20607129.jpg&fm=jpg" class="d-block w-100" alt="Moto 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://img.freepik.com/foto-gratis/persona-que-conduce-motocicleta-potente_23-2150704855.jpg" class="d-block w-100" alt="Moto 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.pexels.com/photos/163210/motorcycles-race-helmets-pilots-163210.jpeg?cs=srgb&dl=pexels-pixabay-163210.jpg&fm=jpg" class="d-block w-100" alt="Moto 3">
+                </div>
+            </div>
+        </div>
+
+        <p>Puedes buscarnos en nuestras redes sociales para formar parte de nuestro club</p>
+        <a href="https://www.instagram.com/cuernabikelife?mdxt=OXJmMGJic2pkbjlm"
+           class="btn btn-primary" role="button">Redes Sociales</a>
+    </section>
+
+
+    <!-- CONTACTO PAL WASA -->
+    <section id="contacto" class="contacto">
+        <h2>Contacto</h2>
+        <p>Puedes comunicarte con nosotros para obtener más información sobre nuestras motocicletas.</p>
+        <p>📞 Teléfono: 222 123 4567</p>
+        <p>✉️ Correo: contacto@bakermot.com</p>
+    </section>
+
+</main>
+
+<!-- PIE DE PÁGINA -->
+<footer>
+    <p>© 2026 BakerMot - Agencia de Motos</p>
+</footer>
+
+<!-- Bootstrap JS y MI JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="scrip.js"></script>
+</body>
+</html>

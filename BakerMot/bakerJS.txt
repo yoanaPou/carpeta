@@ -1,0 +1,53 @@
+// MOSTRAR INFORMACIÓN DE UNA MORTALIKA
+function mostrarInfo(nombreMoto, boton) {
+    const mensaje = boton.nextElementSibling;
+
+    if (mensaje.textContent === "") {
+        mensaje.textContent =
+            "Has seleccionado: " + nombreMoto +
+            ". Aquí podrás consultar más información.";
+    } else {
+        mensaje.textContent = "";
+    }
+}
+
+
+// PERMITIR SOLAMENTE NÚMERITOS
+function soloNumeros(input) {
+    input.value = input.value.replace(/[^0-9]/g, "");
+}
+
+
+// BUSCAR MORTALIKAS
+function buscar() {
+    const texto = document.getElementById("buscarMoto").value.toLowerCase();
+    const motorBuscado = document.getElementById("buscarMotor").value;
+
+    const motos = document.querySelectorAll(".moto");
+    let encontrados = 0;
+
+    motos.forEach(function (moto) {
+        const nombre = moto.querySelector("h3").textContent.toLowerCase();
+        const motor = moto.querySelectorAll("p")[1].textContent;
+
+        const coincideNombre = nombre.includes(texto);
+        const coincideMotor = motor.includes(motorBuscado);
+
+        if (coincideNombre && coincideMotor) {
+            moto.style.display = "block";
+            encontrados++;
+        } else {
+            moto.style.display = "none";
+        }
+    });
+
+    const mensaje = document.getElementById("mensajeBusqueda");
+
+    if (texto === "" && motorBuscado === "") {
+        mensaje.textContent = "";
+    } else if (encontrados > 0) {
+        mensaje.textContent = "Se encontraron " + encontrados + " moto(s).";
+    } else {
+        mensaje.textContent = "No se encontraron motos con esos datos.";
+    }
+}

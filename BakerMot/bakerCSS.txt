@@ -1,0 +1,234 @@
+/* CONFIGURACIÓN GENERALUCHES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px; /* para que la barra no tape las secciones */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #222;
+}
+
+.nombreYou {
+    font-size: 1.2rem;
+    color: #f59e0b;
+    
+}
+/* BARRA DE LA NAVEGACIÓN */
+.barra {
+    background-color: #1f2937;
+}
+.barra .nav-link:hover,
+.barra .nav-link.active {
+    color: #f59e0b;
+}
+
+
+/* CARRUSEL PRINCIPAAAAL */
+.img-portada {
+    height: 420px;
+    object-fit: cover;
+}
+.portada-caption {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+.portada-caption h1 { font-size: 2.5rem; }
+
+@media (max-width: 991px) {
+    .portada-caption h1 { font-size: 2rem; }
+}
+@media (max-width: 576px) {
+    .img-portada { height: 320px; }
+    .portada-caption { left: 8%; right: 8%; padding: 1rem; }
+    .portada-caption h1 { font-size: 1.4rem; }
+    .portada-caption .lead { font-size: 1rem; margin-bottom: .75rem; }
+}
+
+
+/* MENSAJITOOOOS */
+.mensaje {
+    margin-top: 12px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
+/* BUSCADOR */
+.buscador {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: white;
+}
+.buscador h2 {
+    margin-bottom: 20px;
+}
+.buscador label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+.buscador input {
+    width: 90%;
+    max-width: 500px;
+    padding: 14px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+
+/* SECCIÓN DE LAS MORTALIKAS */
+.motos {
+    padding: 50px 5%;
+    text-align: center;
+}
+.motos h2 {
+    margin-bottom: 30px;
+}
+
+.contenedor-motos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.moto {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+}
+.moto:hover {
+    transform: translateY(-5px);
+}
+
+.imagen-moto {
+    background-color: #e5e7eb;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.imagen-moto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.moto h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+.moto p {
+    margin: 8px 0;
+    text-align: left;
+}
+
+/* BOTON SOLO DE LAS TARJETITAS  (ya no afecta al carrusel) */
+.moto button {
+    background-color: #f59e0b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.moto button:hover {
+    background-color: #d97706;
+}
+
+
+/* PAGINACIÓN (Bootstrap + color naranja) */
+.page-link { color: #f59e0b; }
+.page-link:hover { color: #d97706; }
+.page-item.active .page-link {
+    background-color: #f59e0b;
+    border-color: #f59e0b;
+    color: white;
+}
+
+
+/* AYUYAAAA */
+.ayuda {
+    background-color: #1f2937;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+.ayuda h2 {
+    margin-bottom: 15px;
+}
+.ayuda p {
+    margin-bottom: 20px;
+}
+
+#carouselExampleSlidesOnly {
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto;
+}
+#carouselExampleSlidesOnly img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+@media (max-width: 480px) {
+    #carouselExampleSlidesOnly img {
+        height: 180px;
+    }
+}
+
+
+/* CONTACTO */
+.contacto {
+    background-color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+.contacto h2 {
+    margin-bottom: 20px;
+}
+.contacto p {
+    margin: 10px;
+}
+
+
+/* PIE DE PÁGINITA */
+footer {
+    background-color: #111827;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+
+/* RESPONSIVIDAD */
+@media (max-width: 700px) {
+    .motos { padding: 40px 20px; }
+    .contenedor-motos { grid-template-columns: 1fr; }
+    .buscador input { width: 100%; }
+}
+
+@media (max-width: 400px) {
+    .moto { padding: 18px; }
+}
