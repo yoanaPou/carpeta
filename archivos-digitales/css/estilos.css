@@ -1,0 +1,397 @@
+
+/*  1. ESTILOS GENERALES */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #fffafd;
+  color: #172747;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* 2. ENCABEZADO*/
+.encabezado {
+  font-family: 'Pacifico', cursive;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 15px 25px;
+  background: #172747;
+  color: white;
+  box-shadow: 0 4px 12px rgba(23, 39, 71, 0.15);
+  border-bottom: 4px solid #f5b8d7;
+}
+
+.encabezado h1 {
+  color: white;
+  text-shadow: 2px 2px 0 #f5a9d0;
+}
+
+.alumno {
+  font-size: 0.9rem;
+  color: #f5b8d7;
+}
+
+.menu-principal {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* 3. ESTRUCTURA PRINCIPAL*/
+.contenedor {
+  display: flex;
+  min-height: calc(100vh - 70px);
+  background: #fffafd;
+}
+
+/* 4. BARRITAA LATERAAL */
+/* Cada carpeta con su color pastel */
+.barra-lateral li[data-carpeta="Documentos Privados"]     { background: #f5b8d7; }
+.barra-lateral li[data-carpeta="Cursos de Actualización"] { background: #fff3c4; }
+.barra-lateral li[data-carpeta="Documentos Académicos"]   { background: #d9e6ff; }
+.barra-lateral li[data-carpeta="Documentos Familiares"]   { background: #e4f6ec; }
+.barra-lateral {
+  width: 180px;
+  background: #aec8f4;
+  padding: 15px;
+  border-right: 1px solid #dce5f5;
+}
+
+.barra-lateral ul {
+  list-style: none;
+  margin-top: 18px;
+}
+
+.barra-lateral li {
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  border-radius: 13px;
+  transition: 0.3s;
+  color: #344563;
+}
+
+.barra-lateral li:hover {
+  background: #a7bfec;
+  color: #172747;
+  transform: translateX(4px);
+}
+
+/* Apartado seleccionado */
+.barra-lateral li.activa {
+  background: #172747;
+  color: white;
+  font-weight: bold;
+  border-left: 7px solid #f9bfe0;
+}
+
+.barra-lateral li:focus,
+.barra-lateral li:active {
+  background-color: #172747;
+  color: white;
+  outline: none;
+}
+
+.correo {
+  margin-top: 25px;
+  font-size: 0.8rem;
+  color: #52617d;
+  word-break: break-all;
+}
+
+/* 5. CONTENIDO*/
+.contenido {
+  flex: 1;
+  padding: 28px;
+  background: #fffafd;
+}
+
+/* 6. TARJETITAS ONTA LA INFO DEL DOCUMENTOS */
+.tarjeta {
+  background: #eef1f7;
+  padding: 23px;
+  border-radius: 18px;
+  margin-bottom: 22px;
+  border: 1px solid #cbdcf7;
+  border-style: solid;
+  box-shadow: 0 5px 18px rgba(23, 39, 71, 0.06);
+  transition: 0.3s;
+}
+
+.tarjeta:hover {
+  box-shadow: 0 8px 22px rgba(23, 39, 71, 0.11);
+}
+
+.tarjeta h2,
+.tarjeta h3 {
+  color: #172747;
+  margin-bottom: 12px;
+}
+
+/*7. FORMULARIOS */
+label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: 600;
+  color: #34415e;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d6dfef;
+  border-radius: 12px;
+  background: #ffffff;
+  font-size: 0.95rem;
+  color: #25304a;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus,
+select:focus {
+  border-color: #e99bc5;
+  box-shadow: 0 0 0 3px rgba(245, 169, 208, 0.2);
+  background: white;
+}
+
+/* 8. BOTONES DE ACCIOOON*/
+button,
+.boton-enlace {
+  padding: 11px 19px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  background: #172747;
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: 0.3s;
+  display: inline-block;
+}
+
+/* Botón principal */
+button:hover,
+.boton-enlace:hover {
+  background: #294a80;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(23, 39, 71, 0.18);
+}
+
+/* BOTÓN ROSITAA */
+button.secundario {
+  background: #f2b5d5;
+  color: #172747;
+}
+
+button.secundario:hover {
+  background: #e99bc5;
+}
+
+/* BOTÓN ROSITA PA CERRAR Y ELIMINAR*/
+button.peligro {
+  background: #dc2626;
+  color: white;
+}
+
+button.peligro:hover {
+  background: #b91c1c;
+}
+
+/* Botones organizados */
+.botones {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+/*9. LISTA DE ARCHIVOS*/
+.lista-archivos {
+  display: grid;
+  gap: 18px;
+  margin-top: 18px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+.archivo {
+  background: #f7faff;
+  border: 1px solid #f0f3f8;
+  border-style: solid;
+  border-radius: 17px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(23, 39, 71, 0.06);
+  transition: 0.3s;
+}
+
+.archivo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(23, 39, 71, 0.12);
+}
+
+.vista-previa {
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #dce8fa;
+  border-radius: 13px;
+  margin-bottom: 12px;
+  font-weight: bold;
+  color: #294a80;
+  overflow: hidden;
+}
+
+.vista-previa img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* 10. MENSAJITOOOOOOS*/
+.mensaje {
+  margin-top: 12px;
+  padding: 11px 14px;
+  border-radius: 11px;
+}
+
+.mensaje.error {
+  color: #c51f39;
+  background: #ffe5e9;
+}
+
+.mensaje.ok {
+  color: #246c50;
+  background: #e3f6ec;
+}
+
+/* 11. LOGIN O SEA PA INICIAR LA SESION O CREAR CUENTA*/
+.pagina-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #172747, #315b98, #6687c4);
+}
+
+/* Tarjeta del login */
+.caja-login {
+  background: white;
+  padding: 35px;
+  border-radius: 22px;
+  width: 90%;
+  max-width: 380px;
+  box-shadow: 0 10px 30px rgba(23, 39, 71, 0.2);
+}
+
+.caja-login h2 {
+  text-align: center;
+  color: #172747;
+  margin-bottom: 18px;
+}
+
+.caja-login button {
+  width: 100%;
+  margin-top: 18px;
+}
+
+/* Nombre del alumno en el login */
+.caja-login .alumno {
+  display: inline-block;
+  margin: 6px 0 10px;
+  padding: 6px 16px;
+  background: #ffffff;
+  color: #f5a9d0;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+/* 12. DETALLES DE COLORES*/
+/* Amarillo para destacar */
+.destacado {
+  background: #fff1bd;
+  padding: 12px;
+  border-radius: 12px;
+  color: #80621a;
+  border-left: 4px solid #ffd43b;
+}
+
+/* Avisos en rosita mexicano segun yo */
+.aviso {
+  background: #fff0f7;
+  padding: 12px;
+  border-radius: 12px;
+  color: #a83270;
+  border-left: 4px solid #f7b9d7;
+}
+
+/*información en azulito  */
+
+.informacion {
+  background: #e5edfc;
+  padding: 12px;
+  border-radius: 12px;
+  color: #253c65;
+  border-left: 4px solid #789bd2;
+}
+
+/* 13.DESTELLOS ROSAS */
+button:focus,
+button:active,
+.boton-enlace:focus,
+.boton-enlace:active {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Selección de texto */
+::selection {
+  background: #172747;
+  color: white;
+}
+
+/* 14. RESPONSIVO pa q jale en tablet o cel */
+@media (max-width: 700px) {
+
+  .contenedor {
+    flex-direction: column;
+  }
+
+  .barra-lateral {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid #dce5f5;
+  }
+
+  .contenido {
+    padding: 15px;
+  }
+
+  .encabezado {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .menu-principal {
+    justify-content: center;
+  }
+
+  .tarjeta {
+    padding: 17px;
+  }
+
+  .lista-archivos {
+    grid-template-columns: 1fr;
+  }
+
+}
+

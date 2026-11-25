@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archivos Digitales</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <!-- ENCABEZADO: título, nombre completo y menú principal -->
+  <header class="encabezado">
+    <div>
+      <h1>Archivos Digitales</h1>
+      <p class="alumno" id="nombreAlumno"></p>
+    </div>
+    <nav class="menu-principal">
+      <button id="menuInicio">Inicio</button>
+      <button id="menuSubir">Subir documento</button>
+      <button id="btnSalir" class="peligro">Cerrar sesión</button>
+    </nav>
+  </header>
+
+  <div class="contenedor">
+
+    <!-- BARRA LATERAL: carpetas -->
+    <aside class="barra-lateral">
+      <h2>Carpetas</h2>
+      <ul id="listaCarpetas">
+        <li data-carpeta="Todos" class="activa">Todos los archivos</li>
+        <li data-carpeta="Documentos Privados">Documentos Privados</li>
+        <li data-carpeta="Cursos de Actualización">Cursos de Actualización</li>
+        <li data-carpeta="Documentos Académicos">Documentos Académicos</li>
+        <li data-carpeta="Documentos Familiares">Documentos Familiares</li>
+      </ul>
+      <p id="usuarioCorreo" class="correo"></p>
+    </aside>
+
+    <main class="contenido">
+
+      <!-- FORMULARIO: subir / editar / guardar -->
+      <section id="seccionSubir" class="tarjeta">
+        <h2 id="tituloForm">Subir documento</h2>
+        <form id="formArchivo">
+          <label for="nombreArchivo">Nombre del archivo</label>
+          <input type="text" id="nombreArchivo" required>
+
+          <label for="tipoDoc">Tipo de documento</label>
+          <select id="tipoDoc" required>
+            <option value="">-- Selecciona --</option>
+            <option>INE</option>
+            <option>CURP</option>
+            <option>Acta de nacimiento</option>
+            <option>Cursos</option>
+            <option>CV</option>
+            <option>Títulos</option>
+            <option>Cédulas profesionales</option>
+            <option>Recibo de luz</option>
+            <option>Recibo de teléfono</option>
+            <option>Foto</option>
+          </select>
+
+          <label for="inputArchivo">Archivo (PDF o imagen)</label>
+          <input type="file" id="inputArchivo" accept=".pdf,image/*">
+
+          <div class="botones">
+            <button type="submit" id="btnGuardar">Guardar</button>
+            <button type="button" id="btnCancelar" class="secundario" hidden>Cancelar edición</button>
+          </div>
+        </form>
+        <p id="mensaje" class="mensaje"></p>
+      </section>
+
+      <!-- BUSCADOR -->
+      <section class="tarjeta">
+        <input type="search" id="buscador" placeholder="Buscar archivos por nombre...">
+        <h2 id="tituloLista">Todos los archivos</h2>
+        <div id="listaArchivos" class="lista-archivos"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

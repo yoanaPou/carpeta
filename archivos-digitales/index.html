@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archivos Digitales - Inicio de sesión</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="pagina-login">
+  <main class="caja-login">
+    <h1>Archivos Digitales</h1>
+    <p class="alumno" id="nombreAlumno"></p>
+
+    <form id="formLogin">
+      <label for="correo">Correo</label>
+      <input type="email" id="correo" required>
+
+      <label for="clave">Contraseña (mínimo 6 caracteres)</label>
+      <input type="password" id="clave" minlength="6" required>
+
+      <button type="submit" id="btnEntrar">Iniciar sesión</button>
+      <button type="button" id="btnRegistro" class="secundario">Crear cuenta</button>
+    </form>
+
+    <p id="mensaje" class="mensaje"></p>
+  </main>
+
+  <!-- Librería de Supabase (CDN) y obi mis archivos pa conectar-->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
